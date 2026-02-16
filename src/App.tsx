@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Home from './components/Home'
 import About from './components/About'
 import Skills from './components/Skills'
 import Experience from './components/Experience'
@@ -11,6 +12,7 @@ function App() {
     <div className="min-h-screen bg-[#1a1b26]">
       <Navbar />
       <main>
+        <Home />
         <About />
         <Skills />
         <Experience />
