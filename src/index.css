@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@layer base {
+  :root {
+    /* Tokyo Night Theme Colors */
+    --background: 229 36% 13%;
+    --foreground: 229 67% 84%;
+    --card: 229 36% 15%;
+    --card-foreground: 229 67% 84%;
+    --popover: 229 36% 15%;
+    --popover-foreground: 229 67% 84%;
+    --primary: 224 82% 72%;
+    --primary-foreground: 229 36% 13%;
+    --secondary: 267 57% 78%;
+    --secondary-foreground: 229 36% 13%;
+    --muted: 229 30% 25%;
+    --muted-foreground: 229 40% 60%;
+    --accent: 197 96% 46%;
+    --accent-foreground: 229 36% 13%;
+    --destructive: 359 68% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 229 30% 25%;
+    --input: 229 30% 25%;
+    --ring: 224 82% 72%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    background-color: #1a1b26;
+    background-image: 
+      radial-gradient(at 100% 0%, rgba(122, 162, 247, 0.15) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(187, 154, 247, 0.15) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(125, 207, 255, 0.05) 0px, transparent 70%);
+    background-attachment: fixed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #16161e;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #565f89;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7aa2f7;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    @apply bg-[#24283b]/70 backdrop-blur-xl border border-[#414868]/50 rounded-xl;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, #7aa2f7, #bb9af7);
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply px-6 py-3 bg-[#7aa2f7] text-[#1a1b26] font-semibold rounded-lg transition-all duration-300;
+    box-shadow: 0 4px 14px rgba(122, 162, 247, 0.4);
+  }
+
+  .btn-primary:hover {
+    @apply bg-[#bb9af7];
+    box-shadow: 0 6px 20px rgba(187, 154, 247, 0.5);
+    transform: translateY(-2px);
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    @apply px-6 py-3 bg-[#24283b] text-[#c0caf5] font-medium rounded-lg border border-[#414868]/50 transition-all duration-300;
+  }
+
+  .btn-secondary:hover {
+    @apply border-[#7aa2f7]/50 text-[#7aa2f7];
+    box-shadow: 0 4px 14px rgba(122, 162, 247, 0.2);
+  }
+
+  /* Skill tag */
+  .skill-tag {
+    @apply px-3 py-1.5 bg-[#24283b]/80 text-[#c0caf5] text-sm rounded-full border border-[#414868]/50 transition-all duration-300;
+  }
+
+  .skill-tag:hover {
+    @apply border-[#7aa2f7]/30 text-[#7aa2f7];
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(122, 162, 247, 0.2);
+  }
+
+  /* Section container */
+  .section-container {
+    @apply container mx-auto px-4 py-20 max-w-6xl;
+  }
+
+  /* Section title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-4 text-center;
+  }
+
+  /* Section description */
+  .section-description {
+    @apply text-[#565f89] max-w-2xl mx-auto mb-12 text-center;
+  }
+
+  /* Nav link */
+  .nav-link {
+    @apply text-[#a9b1d6] hover:text-[#7aa2f7] transition-colors duration-300 relative;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(to right, #7aa2f7, #bb9af7);
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
